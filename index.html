@@ -93,8 +93,35 @@
 </footer>
 
 <script src="script.js"></script>
+ <script>
+  // УНІКАЛЬНИЙ КЛЮЧ ДЛЯ ТВОГО САЙТУ (будь-який рядок, але постійний)
+  const COUNTER_KEY = 'my-git-site-visitor-counter-1';
+
+  async function updateVisitorCounter() {
+    try {
+      // Приклад з сервісом-лічильником (замінити на реальний робочий endpoint, який вам дозволять використати)
+      const response = await fetch(`https://api.countapi.xyz/hit/${COUNTER_KEY}/visits`);
+      const data = await response.json();
+
+      const span = document.getElementById('visitCount');
+      if (span && data && typeof data.value === 'number') {
+        span.textContent = data.value;
+      } else if (span) {
+        span.textContent = '—';
+      }
+    } catch (e) {
+      const span = document.getElementById('visitCount');
+      if (span) span.textContent = '—';
+      console.error('Помилка лічильника відвідувачів:', e);
+    }
+  }
+
+  // Запускаємо лічильник після завантаження сторінки
+  document.addEventListener('DOMContentLoaded', updateVisitorCounter);
+</script>
 </body>
 </html>
+
 
 
 
