@@ -75,12 +75,12 @@
   }
 
   // Перемикання сторінок: завантажуємо вміст у iframe, щоб аудіо не переривалось
-function navigateTo(page) {
-  if (!page) return;
-  if (!frame) return;
-  // data-page вже містить повний шлях (наприклад, 'pages/about.html')
-  frame.src = page;
-}
+  function navigateTo(page) {
+    if (!page) return;
+    if (!frame) return;
+    // data-page вже містить повний шлях (наприклад, 'pages/about.html')
+    frame.src = page;
+  }
 
   // Пошук: переходимо на перший збіг
   if (searchForm) {
@@ -115,16 +115,16 @@ function navigateTo(page) {
   // Перевіряємо, чи користувач авторизований, і оновлюємо меню
   function updateMenuForUser() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
-    const dashboardLink = nav.querySelector('a[data-page="dashboard.html"]');
-    const loginLink = nav.querySelector('a[data-page="login.html"]');
-    const registerLink = nav.querySelector('a[data-page="register.html"]');
+    const dashboardLink = nav.querySelector('a[data-page="pages/dashboard.html"]');
+    const loginLink = nav.querySelector('a[data-page="pages/login.html"]');
+    const registerLink = nav.querySelector('a[data-page="pages/register.html"]');
     
     if (currentUser) {
       // Користувач авторизований
       if (!dashboardLink) {
         // Додаємо посилання на особистий кабінет
         const li = document.createElement('li');
-        li.innerHTML = '<a href="#" data-page="dashboard.html">🏠 Особистий кабінет</a>';
+        li.innerHTML = '<a href="#" data-page="pages/dashboard.html">🏠 Особистий кабінет</a>';
         const loginLi = loginLink.parentElement;
         loginLi.parentNode.insertBefore(li, loginLi);
       }
