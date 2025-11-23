@@ -75,12 +75,12 @@
   }
 
   // Перемикання сторінок: завантажуємо вміст у iframe, щоб аудіо не переривалось
-  function navigateTo(page) {
-    if (!page) return;
-    if (!frame) return;
-    // усі внутрішні сторінки тепер лежать у корені репозиторію (без папки pages)
-    frame.src = page;
-  }
+function navigateTo(page) {
+  if (!page) return;
+  if (!frame) return;
+  // усі внутрішні сторінки лежать у папці pages
+  frame.src = 'pages/' + page;
+}
 
   // Пошук: переходимо на перший збіг
   if (searchForm) {
