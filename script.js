@@ -78,8 +78,8 @@
 function navigateTo(page) {
   if (!page) return;
   if (!frame) return;
-  // усі внутрішні сторінки лежать у папці pages
-  frame.src = 'pages/' + page;
+  // data-page вже містить повний шлях (наприклад, 'pages/about.html')
+  frame.src = page;
 }
 
   // Пошук: переходимо на перший збіг
