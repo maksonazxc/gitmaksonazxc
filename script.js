@@ -52,17 +52,22 @@
     audio.pause();
   });
 
-  // Відвідувачі: не рахуємо оновлення (користуємось sessionStorage)
-  function updateVisitorCounter() {
-    const KEY_TOTAL = 'visitor_total';
-    const KEY_SEEN = 'visitor_seen_session';
-    if (!sessionStorage.getItem(KEY_SEEN)) {
-      const total = parseInt(localStorage.getItem(KEY_TOTAL) || '0', 10) + 1;
-      localStorage.setItem(KEY_TOTAL, String(total));
-      sessionStorage.setItem(KEY_SEEN, '1');
+  // Відвідувачі: глобальний лічильник через зовнішній сервіс (CountAPI)
+  async function updateVisitorCounter() {
+    if (!visitorEl) return;
+    try {
+      // namespace та key можна змінити, але вони мають залишатися сталими для цього сайту
+      const res = await fetch('https://api.countapi.xyz/hit/git-edu-site/visitor-total');
+      const data = await res.json();
+      if (typeof data.value === 'number') {
+        visitorEl.textContent = data.value;
+      } else {
+        visitorEl.textContent = '—';
+      }
+    } catch (e) {
+      console.error('Помилка лічильника відвідувачів:', e);
+      visitorEl.textContent = '—';
     }
-    const totalShown = localStorage.getItem(KEY_TOTAL) || '1';
-    if (visitorEl) visitorEl.textContent = totalShown;
   }
   updateVisitorCounter();
 
