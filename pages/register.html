@@ -75,7 +75,7 @@
         
         // Перенаправляємо в особистий кабінет через 2 секунди
         setTimeout(() => {
-          window.parent.postMessage({type: 'navigate', page: 'dashboard.html'}, '*');
+          window.parent.postMessage({type: 'navigate', page: 'pages/dashboard.html'}, '*');
         }, 2000);
       });
       
@@ -104,9 +104,10 @@
       
       // Функція для переходу на вхід
       window.navigateToLogin = function() {
-        window.parent.postMessage({type: 'navigate', page: 'login.html'}, '*');
+        window.parent.postMessage({type: 'navigate', page: 'pages/login.html'}, '*');
       };
     })();
   </script>
 </body>
 </html>
+
