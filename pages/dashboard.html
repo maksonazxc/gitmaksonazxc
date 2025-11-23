@@ -151,7 +151,7 @@
       document.getElementById('logoutBtn').addEventListener('click', function() {
         if (confirm('Ви впевнені, що хочете вийти з особистого кабінету?')) {
           localStorage.removeItem('currentUser');
-          window.parent.postMessage({type: 'navigate', page: 'home.html'}, '*');
+          window.parent.postMessage({type: 'navigate', page: 'pages/home.html'}, '*');
         }
       });
 
@@ -163,3 +163,4 @@
   </script>
 </body>
 </html>
+
