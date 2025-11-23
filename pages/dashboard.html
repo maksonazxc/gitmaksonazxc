@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Особистий кабінет — Git Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../pages.css">
+</head>
+<body>
+  <section class="page">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h2>🏠 Особистий <span class="accent">кабінет</span></h2>
+      <button id="logoutBtn" class="btn" style="background: #ef4444;">🚪 Вийти</button>
+    </div>
+    
+    <!-- Привітання користувача -->
+    <div id="welcomeSection" class="card" style="margin-bottom: 20px;">
+      <h3 style="margin: 0 0 10px; color: #8ab4ff;">👋 Вітаємо!</h3>
+      <p id="userInfo" style="margin: 0;"></p>
+    </div>
+
+    <!-- Швидкі посилання для скачування -->
+    <div class="card" style="margin-bottom: 20px;">
+      <h3 style="margin: 0 0 15px; color: #8ab4ff;">⬇️ Скачати Git та GitHub</h3>
+      <div style="display: grid; gap: 10px;">
+        <a href="https://git-scm.com/downloads" target="_blank" class="btn" style="background: #f97316; text-decoration: none; text-align: center;">
+          🔧 Скачати Git (офіційний сайт)
+        </a>
+        <a href="https://desktop.github.com/" target="_blank" class="btn" style="background: #6366f1; text-decoration: none; text-align: center;">
+          🖥️ Скачати GitHub Desktop
+        </a>
+        <a href="https://github.com/" target="_blank" class="btn" style="background: #22c55e; text-decoration: none; text-align: center;">
+          🌐 Відкрити GitHub.com
+        </a>
+      </div>
+    </div>
+
+    <!-- Особлива інформація про Git/GitHub -->
+    <div class="cards">
+      <div class="card">
+        <h3 style="margin: 0 0 10px; color: #8ab4ff;">🎯 Git для початківців</h3>
+        <p>Основні команди Git, які вам знадобляться щодня:</p>
+        <ul style="line-height: 1.6; margin: 10px 0;">
+          <li><code>git init</code> - ініціалізація репозиторію</li>
+          <li><code>git add .</code> - додати всі файли</li>
+          <li><code>git commit -m "опис"</code> - зберегти зміни</li>
+          <li><code>git push</code> - відправити на сервер</li>
+          <li><code>git pull</code> - завантажити зміни</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin: 0 0 10px; color: #8ab4ff;">🌟 GitHub можливості</h3>
+        <p>Що можна робити з GitHub:</p>
+        <ul style="line-height: 1.6; margin: 10px 0;">
+          <li>🗂️ Зберігати код у хмарі</li>
+          <li>👥 Співпрацювати з командою</li>
+          <li>📋 Відстежувати завдання (Issues)</li>
+          <li>🔄 Автоматизувати процеси (Actions)</li>
+          <li>🌐 Хостити веб-сайти (Pages)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin: 0 0 10px; color: #8ab4ff;">💡 Корисні поради</h3>
+        <ul style="line-height: 1.6; margin: 10px 0;">
+          <li>📝 Пишіть зрозумілі коміти</li>
+          <li>🌿 Використовуйте гілки для нових функцій</li>
+          <li>🔍 Регулярно робіть <code>git status</code></li>
+          <li>📚 Читайте документацію</li>
+          <li>🤝 Вивчайте чужий код на GitHub</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="margin: 0 0 10px; color: #8ab4ff;">🔗 Корисні ресурси</h3>
+        <div style="display: grid; gap: 8px;">
+          <a href="https://learngitbranching.js.org/?locale=uk" target="_blank" style="color: #8ab4ff;">
+            🎮 Інтерактивне навчання Git
+          </a>
+          <a href="https://docs.github.com/uk" target="_blank" style="color: #8ab4ff;">
+            📖 Документація GitHub (українською)
+          </a>
+          <a href="https://git-scm.com/book/uk/v2" target="_blank" style="color: #8ab4ff;">
+            📚 Книга Pro Git (українською)
+          </a>
+          <a href="https://github.com/explore" target="_blank" style="color: #8ab4ff;">
+            🔍 Досліджувати проєкти на GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Статистика користувача -->
+    <div class="card" style="margin-top: 20px;">
+      <h3 style="margin: 0 0 15px; color: #8ab4ff;">📊 Ваша статистика</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <div style="text-align: center; padding: 10px; background: rgba(138,180,255,0.1); border-radius: 8px;">
+          <div style="font-size: 24px; font-weight: bold; color: #8ab4ff;" id="daysRegistered">0</div>
+          <div style="font-size: 14px; color: #bdbdbd;">днів з реєстрації</div>
+        </div>
+        <div style="text-align: center; padding: 10px; background: rgba(34,197,94,0.1); border-radius: 8px;">
+          <div style="font-size: 24px; font-weight: bold; color: #22c55e;" id="testsCompleted">0</div>
+          <div style="font-size: 14px; color: #bdbdbd;">тестів пройдено</div>
+        </div>
+        <div style="text-align: center; padding: 10px; background: rgba(249,115,22,0.1); border-radius: 8px;">
+          <div style="font-size: 24px; font-weight: bold; color: #f97316;" id="pagesVisited">1</div>
+          <div style="font-size: 14px; color: #bdbdbd;">сторінок відвідано</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      // Перевіряємо, чи користувач авторизований
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      
+      if (!currentUser) {
+        // Якщо не авторизований, перенаправляємо на реєстрацію
+        window.parent.postMessage({type: 'navigate', page: 'register.html'}, '*');
+        return;
+      }
+
+      // Відображаємо інформацію про користувача
+      const userInfo = document.getElementById('userInfo');
+      const registrationDate = new Date(currentUser.registeredAt);
+      // Отримуємо статистику користувача
+      const stats = JSON.parse(localStorage.getItem(`userStats_${currentUser.id}`) || '{}');
+      const lastLogin = stats.lastLogin ? new Date(stats.lastLogin).toLocaleString('uk-UA') : 'Перший вхід';
+      const loginCount = stats.loginCount || 1;
+      
+      userInfo.innerHTML = `
+        <strong>${currentUser.name}</strong> (${currentUser.email})<br>
+        <small style="color: #bdbdbd;">Зареєстровано: ${registrationDate.toLocaleDateString('uk-UA')}</small><br>
+        <small style="color: #8ab4ff;">Останній вхід: ${lastLogin} | Входів: ${loginCount}</small>
+      `;
+
+      // Рахуємо дні з реєстрації
+      const daysRegistered = Math.floor((Date.now() - registrationDate.getTime()) / (1000 * 60 * 60 * 24));
+      document.getElementById('daysRegistered').textContent = daysRegistered;
+
+      // Відображаємо статистику
+      document.getElementById('testsCompleted').textContent = stats.testsCompleted || 0;
+      document.getElementById('pagesVisited').textContent = stats.pagesVisited || 1;
+
+      // Обробник виходу
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        if (confirm('Ви впевнені, що хочете вийти з особистого кабінету?')) {
+          localStorage.removeItem('currentUser');
+          window.parent.postMessage({type: 'navigate', page: 'home.html'}, '*');
+        }
+      });
+
+      // Оновлюємо статистику відвідувань
+      stats.pagesVisited = (stats.pagesVisited || 0) + 1;
+      stats.lastVisit = new Date().toISOString();
+      localStorage.setItem(`userStats_${currentUser.id}`, JSON.stringify(stats));
+    })();
+  </script>
+</body>
+</html>

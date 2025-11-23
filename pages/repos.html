@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Репозиторії — GITHUB HUB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../pages.css">
+</head>
+<body>
+  <section class="page">
+    <h2>Що таке <span class="accent">репозиторій</span> і <span class="accent">гілка</span>?</h2>
+    <p>
+      <strong>Репозиторій</strong> — це папка з вашим проєктом, у якій Git зберігає історію змін.
+      Ви працюєте з файлами як завжди, але Git пам'ятає, що і коли змінилось.
+    </p>
+    <p>
+      <strong>Гілка</strong> — це окрема «лінія» розвитку проєкту. У ній можна пробувати нові ідеї,
+      не чіпаючи основну гілку <code>main</code>.
+    </p>
+    <ol class="list">
+      <li>Створіть папку і зайдіть у неї, потім: <code>git init</code> — створення репозиторію.</li>
+      <li>Додайте файли і зробіть перший коміт: <code>git add .</code>, потім <code>git commit -m "Перший коміт"</code>.</li>
+      <li>Створіть гілку для експериментів: <code>git switch -c feature-idea</code>.</li>
+      <li>Повернутися в основну гілку можна командою <code>git switch main</code>.</li>
+    </ol>
+  </section>
+</body>
+</html>

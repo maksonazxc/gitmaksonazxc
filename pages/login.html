@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вхід — Git Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../pages.css">
+</head>
+<body>
+  <section class="page">
+    <h2>🔐 <span class="accent">Вхід</span> до особистого кабінету</h2>
+    
+    <form id="loginForm" class="form">
+      <label>Email<input name="email" type="email" required placeholder="Введіть ваш email"></label>
+      <label>Пароль<input name="password" type="password" required placeholder="Введіть ваш пароль"></label>
+      <button type="submit" class="btn">🚪 Увійти</button>
+    </form>
+    
+    <p id="loginStatus"></p>
+    
+    <div style="margin-top: 20px; padding: 15px; background: rgba(138,180,255,0.1); border-radius: 8px; border: 1px solid #8ab4ff;">
+      <h3 style="margin: 0 0 10px; color: #8ab4ff;">ℹ️ Ще не маєте акаунту?</h3>
+      <p style="margin: 0;">
+        <a href="#" onclick="navigateToRegister()" style="color: #8ab4ff; text-decoration: underline;">
+          📝 Зареєструватися зараз
+        </a>
+      </p>
+    </div>
+
+  </section>
+
+  <script>
+    (function(){
+      const form = document.getElementById('loginForm');
+      const status = document.getElementById('loginStatus');
+      
+      // Створюємо тестового користувача, якщо його немає
+      function createTestUser() {
+        const users = JSON.parse(localStorage.getItem('gh_users') || '[]');
+        const testUser = users.find(u => u.email === 'test@example.com');
+        
+        if (!testUser) {
+          const testUserData = {
+            id: 'user_test',
+            name: 'Тестовий Користувач',
+            email: 'test@example.com',
+            pwd: '123456',
+            msg: 'Тестовий акаунт для демонстрації',
+            registeredAt: new Date().toISOString()
+          };
+          users.push(testUserData);
+          localStorage.setItem('gh_users', JSON.stringify(users));
+        }
+      }
+      
+      createTestUser();
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        
+        // Очищаємо попередні повідомлення
+        status.innerHTML = '';
+        
+        // Перевіряємо дані
+        if (!email || !password) {
+          status.innerHTML = '<span style="color: #ef4444;">⚠️ Заповніть всі поля!</span>';
+          return;
+        }
+        
+        // Шукаємо користувача
+        const users = JSON.parse(localStorage.getItem('gh_users') || '[]');
+        const user = users.find(u => u.email === email && u.pwd === password);
+        
+        if (user) {
+          // Успішний вхід
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          
+          // Оновлюємо статистику входів
+          const stats = JSON.parse(localStorage.getItem(`userStats_${user.id}`) || '{}');
+          stats.lastLogin = new Date().toISOString();
+          stats.loginCount = (stats.loginCount || 0) + 1;
+          localStorage.setItem(`userStats_${user.id}`, JSON.stringify(stats));
+          
+          status.innerHTML = '<span style="color: #22c55e;">✅ Вхід успішний! Перенаправляємо в особистий кабінет...</span>';
+          
+          // Перенаправляємо в особистий кабінет через 1.5 секунди
+          setTimeout(() => {
+            window.parent.postMessage({type: 'navigate', page: 'dashboard.html'}, '*');
+          }, 1500);
+          
+        } else {
+          // Невірні дані
+          status.innerHTML = '<span style="color: #ef4444;">❌ Невірний email або пароль!</span>';
+          
+          // Очищаємо поле паролю
+          form.querySelector('input[name="password"]').value = '';
+        }
+      });
+      
+      
+      // Функція для переходу на реєстрацію
+      window.navigateToRegister = function() {
+        window.parent.postMessage({type: 'navigate', page: 'register.html'}, '*');
+      };
+      
+      // Перевіряємо, чи користувач вже авторизований
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      if (currentUser) {
+        status.innerHTML = '<span style="color: #8ab4ff;">ℹ️ Ви вже увійшли в систему як <strong>' + currentUser.name + '</strong></span>';
+        setTimeout(() => {
+          window.parent.postMessage({type: 'navigate', page: 'dashboard.html'}, '*');
+        }, 2000);
+      }
+    })();
+  </script>
+</body>
+</html>

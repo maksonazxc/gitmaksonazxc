@@ -1,0 +1,98 @@
+ <!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git — навчальний портал</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Фонове відео -->
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="media/videobg.mp4" type="video/mp4">
+</video>
+<div class="bg-overlay"></div>
+
+<header class="site-header">
+    <div class="logo">
+        <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" alt="Логотип Git" />
+        <h1>Git</h1>
+    </div>
+
+    <button class="burger" aria-label="Меню" aria-expanded="false">
+        ☰
+    </button>
+
+    <nav class="top-nav" id="topNav">
+        <ul>
+            <li><a href="#" data-page="home.html">Головна</a></li>
+            <li><a href="#" data-page="about.html">Про Git</a></li>
+            <li><a href="#" data-page="git-github.html">Git + GitHub</a></li>
+            <li><a href="#" data-page="repos.html">Репозиторії та гілки (основи)</a></li>
+            <li><a href="#" data-page="actions.html">Приклади команд Git</a></li>
+            <li><a href="#" data-page="opensource.html">Спільна робота над кодом</a></li>
+            <li><a href="#" data-page="tutorial.html">Початок роботи з Git</a></li>
+            <li><a href="#" data-page="quiz.html">Тест</a></li>
+            <li><a href="#" data-page="login.html">🔐 Вхід</a></li>
+            <li><a href="#" data-page="register.html">📝 Реєстрація</a></li>
+            <li><a href="#" data-page="images.html">Галерея</a></li>
+            <li><a href="#" data-page="faq.html">FAQ/Контакти</a></li>
+        </ul>
+        <form id="searchForm" class="search">
+            <input type="search" id="searchInput" placeholder="Пошук по сайту..." aria-label="Пошук">
+            <button type="submit">Шукати</button>
+        </form>
+    </nav>
+</header>
+
+<main class="app">
+    <!-- Глобальний аудіоплеєр (продовжує грати при навігації між сторінками в iframe) -->
+    <audio id="bgAudio" loop>
+        <source src="media/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Натисни 1 раз — грає музика; 2 рази — пауза -->
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Git — твій головний інструмент для роботи з кодом</h2>
+            <p>Git допомагає зберігати історію змін, працювати в гілках і безпечно експериментувати з кодом — самостійно або в команді.</p>
+            <a href="https://git-scm.com/" target="_blank" class="btn">Офіційний сайт Git</a>
+        </div>
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- Область вмісту: для головної сторінки можна показати home напряму або залишити як є -->
+    <section class="content">
+        <iframe id="pageFrame" title="Вміст" src="home.html" loading="lazy"></iframe>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+            <strong>Посилання</strong>
+            <p><a href="https://github.com" target="_blank" rel="noopener">Офіційний GitHub</a></p>
+      </div>
+      <div>
+            <strong>Соцмережі</strong>
+            <p>
+                <a href="https://www.instagram.com/kpk_pvfp/" target="_blank" rel="noopener">📷 Instagram</a> ·
+                <a href="https://www.facebook.com/KPKPVFP/" target="_blank" rel="noopener">📘 Facebook</a> ·
+                <a href="https://www.youtube.com/channel/UCsiy8gqaal_IKe63lQyjUdA" target="_blank" rel="noopener">📺 YouTube</a>
+            </p>
+      </div>
+        <div>
+            
+            <p>Відвідувачі за весь час: <span id="visitorCount">—</span></p>
+        </div>
+    </div>
+    <p class="copy"> 2025 Git — навчальний проєкт</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приклади команд Git</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../pages.css">
+</head>
+<body>
+  <section class="page">
+    <h2>Приклади основних <span class="accent">команд Git</span></h2>
+    <p>Нижче — невелика «шпаргалка» з найчастіших команд, які потрібні на старті.</p>
+
+    <h3>Ініціалізація та базові налаштування</h3>
+    <ul class="list">
+      <li><code>git init</code> — увімкнути Git в поточній папці (створити репозиторій).</li>
+      <li><code>git config --global user.name "Ваше ім'я"</code> — ім'я автора комітів.</li>
+      <li><code>git config --global user.email "you@example.com"</code> — email автора комітів.</li>
+    </ul>
+
+    <h3>Додавання змін і коміти</h3>
+    <ul class="list">
+      <li><code>git status</code> — показує, які файли змінені/нові.</li>
+      <li><code>git add файл.txt</code> — додати один файл до наступного коміту.</li>
+      <li><code>git add .</code> — додати всі змінені файли.</li>
+      <li><code>git commit -m "Короткий опис змін"</code> — зберегти знімок (коміт).</li>
+    </ul>
+
+    <h3>Робота з гілками</h3>
+    <ul class="list">
+      <li><code>git branch</code> — список гілок.</li>
+      <li><code>git switch -c new-feature</code> — створити нову гілку і переключитися на неї.</li>
+      <li><code>git switch main</code> — повернутися на основну гілку.</li>
+      <li><code>git merge new-feature</code> — змерджити гілку <code>new-feature</code> у поточну.</li>
+    </ul>
+
+    <h3>Простий щоденний сценарій</h3>
+    <ol class="list">
+      <li>Зробіть зміни у файлах проєкту.</li>
+      <li>Перевірте, що змінилось: <code>git status</code>.</li>
+      <li>Додайте файли: <code>git add .</code>.</li>
+      <li>Зробіть коміт: <code>git commit -m "Коротко, що зробили"</code>.</li>
+      <li>За потреби створіть гілку для нової фічі: <code>git switch -c feature-idea</code>.</li>
+    </ol>
+
+    <p>Цих команд достатньо, щоб почати працювати з власними невеликими проєктами в Git.</p>
+  </section>
+</body>
+</html>
