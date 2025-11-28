@@ -85,26 +85,53 @@
                 <a href="https://www.youtube.com/channel/UCsiy8gqaal_IKe63lQyjUdA" target="_blank" rel="noopener">📺 YouTube</a>
             </p>
       </div>
-      <!-- I.UA counter --><a href="https://www.i.ua/" target="_blank" onclick="this.href='https://i.ua/r.php?239595';" title="Rated by I.UA">
-<script type="text/javascript"><!--
-iS='http'+(window.location.protocol=='https:'?'s':'')+
-'://r.i.ua/s?u239595&p144&n'+Math.random();
-iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
-iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
-+"&w"+screen.width+'&h'+screen.height;
-iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
-((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
-if(iT!=iH.substring(0,iI))iS+='&f'+escape(iR);
-iS+='&r'+escape(iH);
-iD.write('<img src="'+iS+'" border="0" width="88" height="31" />');
-//--></script></a><!-- End of I.UA counter -->
-    </div>
+      <!-- I.UA counter -->
+<script>
+// Запускати тільки один раз
+if (!localStorage.getItem("iuacounter_run")) {
+
+    let iS = (window.location.protocol === "https:" ? "https:" : "http:") +
+             "//r.i.ua/su239595&p144&n" + Math.random();
+
+    let iD = document;
+
+    if (!iD.cookie) iD.cookie = "b=b; path=/";
+    if (iD.cookie) iS += "&c1";
+
+    iS += "&d" + (screen.colorDepth ? screen.colorDepth : screen.pixelDepth) +
+          "&w" + screen.width + "&h" + screen.height;
+
+    let iP = iD.referrer.replace(/[^a-z]*:\/\//i, "");
+    let iH = window.location.href.replace(iP, "");
+    if ((iI = iH.indexOf("/")) !== -1) iI = iH.substring(0, iI);
+    else iI = iH.length;
+
+    if (iI !== iH.substring(0, iI)) iS += "&f" + escape(iR);
+    iS += "&r" + escape(iH);
+
+    // Створюємо IMG вручну, БЕЗ document.write
+    const img = document.createElement("img");
+    img.src = iS;
+    img.width = 88;
+    img.height = 31;
+    img.border = 0;
+
+    // Додаємо у footer
+    document.querySelector("footer").appendChild(img);
+
+    // Помічаємо як виконано
+    localStorage.setItem("iuacounter_run", "yes");
+}
+</script>
+<!-- End of I.UA counter -->
+
     <p class="copy"> 2025 Git — навчальний проєкт</p>
 </footer>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
