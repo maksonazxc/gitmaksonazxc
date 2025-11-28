@@ -85,40 +85,19 @@
                 <a href="https://www.youtube.com/channel/UCsiy8gqaal_IKe63lQyjUdA" target="_blank" rel="noopener">📺 YouTube</a>
             </p>
       </div>
-       <!-- I.UA counter -->
-<script type="text/javascript">
-
-// Перевірка: чи вже запускали лічильник?
-if (!localStorage.getItem("iuacounter_run")) {
-
-    var iU = (("https:" == window.location.protocol) ? "https:" : "http:") +
-        "//r.i.ua/su239595&p48n" + Math.random();
-
-    var iD = document;
-
-    if (!iD.cookie) iD.cookie = "b=b; path=/";
-    if (iD.cookie) iU += "&c1";
-
-    iU += "&d" + (screen.colorDepth ? screen.colorDepth : screen.pixelDepth) +
-          "&w" + screen.width + "&h" + screen.height;
-
-    var iP = iD.referrer.replace(/[\?\&\#].*$/, "");
-    if (iP.match(/[a-z]*:\/\/\//)) iP = window.location.href.replace(iP, "");
-
-    iU += ((iP.indexOf("/") != 0) ? ((iP.substring(0, 1) == "/") ? "" : "/") : "") +
-          iP + "&" + escape(iD.title);
-
-    iU += "&r" + escape(iP);
-
-    iD.write('<img src="' + iU + '" border="0" width="88" height="31" />');
-
-    // Позначаємо як виконано
-    localStorage.setItem("iuacounter_run", "yes");
-}
-
-</script>
-<!-- End of I.UA counter -->
-
+      <!-- I.UA counter --><a href="https://www.i.ua/" target="_blank" onclick="this.href='https://i.ua/r.php?239595';" title="Rated by I.UA">
+<script type="text/javascript"><!--
+iS='http'+(window.location.protocol=='https:'?'s':'')+
+'://r.i.ua/s?u239595&p144&n'+Math.random();
+iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
+iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
++"&w"+screen.width+'&h'+screen.height;
+iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
+((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+if(iT!=iH.substring(0,iI))iS+='&f'+escape(iR);
+iS+='&r'+escape(iH);
+iD.write('<img src="'+iS+'" border="0" width="88" height="31" />');
+//--></script></a><!-- End of I.UA counter -->
     </div>
     <p class="copy"> 2025 Git — навчальний проєкт</p>
 </footer>
@@ -126,6 +105,7 @@ if (!localStorage.getItem("iuacounter_run")) {
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
