@@ -52,29 +52,6 @@
     audio.pause();
   });
 
-  // Відвідувачі: локальний лічильник без зовнішніх сервісів
-function updateVisitorCounter() {
-  if (!visitorEl) return;
-
-  const KEY_TOTAL = 'visitor_total';
-  const KEY_SEEN = 'visitor_seen_session';
-
-  try {
-    if (!sessionStorage.getItem(KEY_SEEN)) {
-      const total = parseInt(localStorage.getItem(KEY_TOTAL) || '0', 10) + 1;
-      localStorage.setItem(KEY_TOTAL, String(total));
-      sessionStorage.setItem(KEY_SEEN, '1');
-    }
-
-    const totalShown = localStorage.getItem(KEY_TOTAL) || '1';
-    visitorEl.textContent = totalShown;
-  } catch (e) {
-    console.error('Помилка локального лічильника відвідувачів:', e);
-    visitorEl.textContent = '—';
-  }
-}
-updateVisitorCounter();
-  
 
   // Простий бургер для малих екранів: показує/ховає меню
   if (burger && nav) {
@@ -123,7 +100,7 @@ updateVisitorCounter();
   });
 
   // Перевіряємо, чи користувач авторизований, і оновлюємо меню
-  function updateMenuForUser() {
+  function updateMeuForUser() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
     const dashboardLink = nav.querySelector('a[data-page="pages/dashboard.html"]');
     const loginLink = nav.querySelector('a[data-page="pages/login.html"]');
